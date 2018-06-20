@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Scenes/Wumbo_Preview.unity
-  isLoaded: 1
-  isActive: 1
