@@ -3970,6 +3970,54 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114002340814168780, guid: 944371d241b09c14a9034f03d0ccdaae,
+        type: 2}
+      propertyPath: maxRevSpeed
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 54382690011082758, guid: 944371d241b09c14a9034f03d0ccdaae,
+        type: 2}
+      propertyPath: m_Mass
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1602338336368360, guid: 944371d241b09c14a9034f03d0ccdaae, type: 2}
+      propertyPath: m_Name
+      value: RLWheel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800703772661644, guid: 944371d241b09c14a9034f03d0ccdaae, type: 2}
+      propertyPath: m_Name
+      value: RRWheel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366276057863678, guid: 944371d241b09c14a9034f03d0ccdaae, type: 2}
+      propertyPath: m_Name
+      value: FRWheel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913189481295274, guid: 944371d241b09c14a9034f03d0ccdaae, type: 2}
+      propertyPath: m_Name
+      value: FLWheel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878290288261822, guid: 944371d241b09c14a9034f03d0ccdaae, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871276669717808, guid: 944371d241b09c14a9034f03d0ccdaae, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4120839917316646, guid: 944371d241b09c14a9034f03d0ccdaae, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 54382690011082758, guid: 944371d241b09c14a9034f03d0ccdaae,
+        type: 2}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114002340814168780, guid: 944371d241b09c14a9034f03d0ccdaae,
+        type: 2}
+      propertyPath: currentGear
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 944371d241b09c14a9034f03d0ccdaae, type: 2}
   m_IsPrefabParent: 0
