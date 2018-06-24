@@ -860,28 +860,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Wumbo1
-    clip: {fileID: 8300000, guid: 8d52f7a7ddc343a4493160cd73e1fdbb, type: 3}
-    volume: 1
-    pitch: 0.66
-    loop: 0
-    source: {fileID: 0}
-  - name: Wumbo2
-    clip: {fileID: 8300000, guid: 8d52f7a7ddc343a4493160cd73e1fdbb, type: 3}
-    volume: 1
-    pitch: 1.22
-    loop: 0
-    source: {fileID: 0}
-  - name: Wumbo3
-    clip: {fileID: 8300000, guid: 8d52f7a7ddc343a4493160cd73e1fdbb, type: 3}
-    volume: 1
-    pitch: 2.07
-    loop: 0
-    source: {fileID: 0}
-  - name: Wumbo4
+  - name: 
     clip: {fileID: 0}
-    volume: 1
-    pitch: 0.96
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: 
+    clip: {fileID: 0}
+    volume: 0
+    pitch: 0
     loop: 0
     source: {fileID: 0}
 --- !u!4 &1500275604

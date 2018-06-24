@@ -12,7 +12,7 @@ public class MainMenu_Camera : MonoBehaviour {
 
     private void Start()
     {
-        offset = new Vector3(-0.5f * Time.deltaTime, 0, 0);
+        offset = new Vector3(-0.2f * Time.deltaTime, 0, 0);
 
 
 
