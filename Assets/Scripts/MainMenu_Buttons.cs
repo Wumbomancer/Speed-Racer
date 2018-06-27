@@ -17,6 +17,11 @@ public class MainMenu_Buttons : MonoBehaviour {
 
     public Dropdown resolutionDropdown;
 
+    private Button PlayButton;
+    public Button SettingsButton;
+    public Button ExtrasButton;
+    public Button ExitButton;
+
     void Start()
     {
         Screen.fullScreen = false;
@@ -40,6 +45,12 @@ public class MainMenu_Buttons : MonoBehaviour {
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+    }
+
+    void Update()
+    {
+        
+
     }
     
 	

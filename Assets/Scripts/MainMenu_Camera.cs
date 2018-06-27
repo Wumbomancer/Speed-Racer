@@ -7,12 +7,12 @@ public class MainMenu_Camera : MonoBehaviour {
     public Camera MainMenuCamera;
 
     private Vector3 offset ;
-
+    private bool 
     // Update is called once per frame
 
     private void Start()
     {
-        offset = new Vector3(-0.5f * Time.deltaTime, 0, 0);
+        offset = new Vector3(-0.2f * Time.deltaTime, 0, 0);
 
 
 
