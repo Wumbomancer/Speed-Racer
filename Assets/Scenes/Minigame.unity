@@ -572,6 +572,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 231153546}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!146 &283691957 stripped
+WheelCollider:
+  m_PrefabParentObject: {fileID: 146080088447042786, guid: 944371d241b09c14a9034f03d0ccdaae,
+    type: 2}
+  m_PrefabInternal: {fileID: 2142211223}
 --- !u!1 &315897734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,6 +1088,56 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 473699591}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &529057194 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1188615185313228, guid: 944371d241b09c14a9034f03d0ccdaae,
+    type: 2}
+  m_PrefabInternal: {fileID: 2142211223}
+--- !u!114 &529057201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 529057194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172bb37c102bd4d479dfa18110bd3439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bhp: 500
+  torque: 0
+  brakeTorque: 250
+  gearRatio:
+  - 2.4
+  - 2
+  - 1.5
+  - 0.9
+  - 0.3
+  currentGear: 0
+  ignP1: 0
+  IgnP2: 0
+  IgnBeep: {fileID: 0}
+  IgnMain: {fileID: 0}
+  idleSound: {fileID: 0}
+  turboSound: {fileID: 0}
+  FL: {fileID: 1149308419}
+  FR: {fileID: 1117793979}
+  RL: {fileID: 283691957}
+  RR: {fileID: 1601765363}
+  currentSpeed: 0
+  maxSpeed: 300
+  maxRevSpeed: -40
+  SteerAngle: 13
+  BrakeLgts: {fileID: 0}
+  RevLgts: {fileID: 0}
+  engineIsOn: 0
+  isManual: 0
+  engineRPM: 0
+  gearUpRPM: 1000
+  gearDownRPM: 300
+  handBraked: 0
+  BacFire_Sound: {fileID: 0}
+  skidAudio: {fileID: 0}
 --- !u!1 &534801106
 GameObject:
   m_ObjectHideFlags: 0
@@ -1735,6 +1790,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!146 &1117793979 stripped
+WheelCollider:
+  m_PrefabParentObject: {fileID: 146400813799543510, guid: 944371d241b09c14a9034f03d0ccdaae,
+    type: 2}
+  m_PrefabInternal: {fileID: 2142211223}
+--- !u!146 &1149308419 stripped
+WheelCollider:
+  m_PrefabParentObject: {fileID: 146497873147175602, guid: 944371d241b09c14a9034f03d0ccdaae,
+    type: 2}
+  m_PrefabInternal: {fileID: 2142211223}
 --- !u!1 &1184918189
 GameObject:
   m_ObjectHideFlags: 0
@@ -2599,6 +2664,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1521750081}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!146 &1601765363 stripped
+WheelCollider:
+  m_PrefabParentObject: {fileID: 146497494703181894, guid: 944371d241b09c14a9034f03d0ccdaae,
+    type: 2}
+  m_PrefabInternal: {fileID: 2142211223}
 --- !u!1 &1671578191
 GameObject:
   m_ObjectHideFlags: 0
@@ -3969,6 +4039,59 @@ Prefab:
     - target: {fileID: 4519554760557890, guid: 944371d241b09c14a9034f03d0ccdaae, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114002340814168780, guid: 944371d241b09c14a9034f03d0ccdaae,
+        type: 2}
+      propertyPath: maxRevSpeed
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 54382690011082758, guid: 944371d241b09c14a9034f03d0ccdaae,
+        type: 2}
+      propertyPath: m_Mass
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1602338336368360, guid: 944371d241b09c14a9034f03d0ccdaae, type: 2}
+      propertyPath: m_Name
+      value: RLWheel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1800703772661644, guid: 944371d241b09c14a9034f03d0ccdaae, type: 2}
+      propertyPath: m_Name
+      value: RRWheel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366276057863678, guid: 944371d241b09c14a9034f03d0ccdaae, type: 2}
+      propertyPath: m_Name
+      value: FRWheel
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913189481295274, guid: 944371d241b09c14a9034f03d0ccdaae, type: 2}
+      propertyPath: m_Name
+      value: FLWheel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4878290288261822, guid: 944371d241b09c14a9034f03d0ccdaae, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871276669717808, guid: 944371d241b09c14a9034f03d0ccdaae, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4120839917316646, guid: 944371d241b09c14a9034f03d0ccdaae, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 54382690011082758, guid: 944371d241b09c14a9034f03d0ccdaae,
+        type: 2}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114002340814168780, guid: 944371d241b09c14a9034f03d0ccdaae,
+        type: 2}
+      propertyPath: currentGear
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114002340814168780, guid: 944371d241b09c14a9034f03d0ccdaae,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 944371d241b09c14a9034f03d0ccdaae, type: 2}

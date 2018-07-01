@@ -30,6 +30,10 @@ public class BasicVehControls : MonoBehaviour
 
 	public bool handBraked;
 
+    private float desiredSpeed;
+    private float desiredBrake;
+
+	public List<AudioSource> CarSound;
 
 	public float[] MinRpmTable = {50.0f, 75.0f, 112.0f, 166.9f, 222.4f, 278.3f, 333.5f, 388.2f, 435.5f, 483.3f, 538.4f, 594.3f, 643.6f, 692.8f, 741.9f, 790.0f};
 	public float[] NormalRpmTable = {72.0f, 93.0f, 155.9f, 202.8f, 267.0f, 314.5f, 377.4f, 423.9f, 472.1f, 519.4f, 582.3f, 631.3f, 680.8f, 729.4f, 778.8f, 826.1f};
@@ -41,13 +45,13 @@ public class BasicVehControls : MonoBehaviour
     void Start()
     {
 
-        /*FL = GameObject.Find("FL.Col").GetComponent<WheelCollider>();
-        FR = GameObject.Find("FR.Col").GetComponent<WheelCollider>();
-        RL = GameObject.Find("RL.Col").GetComponent<WheelCollider>();
-        RR = GameObject.Find("RR.Col").GetComponent<WheelCollider>();
-		*/
-        COM = GameObject.Find("DatBody");
-        //GetComponent<Rigidbody>().centerOfMass = new Vector3(COM.transform.localPosition.x * transform.localScale.x, COM.transform.localPosition.y * transform.localScale.y, COM.transform.localPosition.z * transform.localScale.z);		            
+        FL = GameObject.Find("FLWheel").GetComponent<WheelCollider>();
+        FR = GameObject.Find("FRWheel").GetComponent<WheelCollider>();
+        RL = GameObject.Find("RLWheel").GetComponent<WheelCollider>();
+        RR = GameObject.Find("RRWheel").GetComponent<WheelCollider>();
+		
+        COM = GameObject.Find("Wheels");
+        GetComponent<Rigidbody>().centerOfMass = new Vector3(COM.transform.localPosition.x * transform.localScale.x, COM.transform.localPosition.y * transform.localScale.y, COM.transform.localPosition.z * transform.localScale.z);		            
 
 		for(int i =1; i<=16; ++i) 
 		{
@@ -66,13 +70,14 @@ public class BasicVehControls : MonoBehaviour
 		Accelerate();
 		//carSounds ();
 
-		//Defenitions.
+		//Definitions.
         currentSpeed = GetComponent<Rigidbody>().velocity.magnitude * 3.6f;
         engineRPM = Mathf.Round((RL.rpm * gearRatio[currentGear]));
-		soundRPM = Mathf.Round(engineRPM * (1000 / 420));
+
+		//soundRPM = Mathf.Round(engineRPM * (1000 / 420));
         torque = bhp * gearRatio[currentGear];     
 
-        if (Input.GetButton("EBrake"))
+        if (Input.GetButton("Jump"))
         {
             HandBrakes();
         }
@@ -89,14 +94,21 @@ public class BasicVehControls : MonoBehaviour
 
     void Accelerate()
     {
-
+       // Grab Inputs here
+        desiredSpeed = Input.GetAxis("Gas") * (-1f)*Time.deltaTime*100;
+        desiredBrake = Input.GetAxis("Gas") * Time.deltaTime*100;
+        if (desiredSpeed < 0)
+            desiredSpeed = 0;
+        if (desiredBrake < 0)
+            desiredBrake = 0;
         if (currentSpeed < maxSpeed && currentSpeed > maxRevSpeed && engineRPM <= gearUpRPM)
         {
-            //v Debug.LogError(Input.GetAxis("Gas"));
-            RL.motorTorque = torque * Input.GetAxis("Gas")*(-1f);
-            RR.motorTorque = torque * Input.GetAxis("Gas")*(-1f);
+            Debug.Log(desiredSpeed);
+            RL.motorTorque = torque * desiredSpeed;
+            RR.motorTorque = torque * desiredSpeed;
             RL.brakeTorque = 0;
             RR.brakeTorque = 0;
+            
         }
         else
         {
@@ -107,9 +119,9 @@ public class BasicVehControls : MonoBehaviour
             RR.brakeTorque = brakeTorque;
         }
 
-		if (engineRPM > 0 && (Input.GetAxis("Gas")) < 0 && engineRPM <= gearUpRPM)
+		if (engineRPM > 0 && desiredSpeed  < 0 && engineRPM <= gearUpRPM)
 		{
-			
+           
             FL.brakeTorque = brakeTorque;
             FR.brakeTorque = brakeTorque;
         }
@@ -144,7 +156,7 @@ public class BasicVehControls : MonoBehaviour
 
         if (engineRPM >= gearUpRPM)
         {
-
+            Debug.Log(currentGear);
             for (var i = 0; i < gearRatio.Length; i++)
             {
                 if (RL.rpm * gearRatio[i] < gearUpRPM)
@@ -158,15 +170,18 @@ public class BasicVehControls : MonoBehaviour
 
         if (engineRPM <= gearDownRPM)
         {
+            Debug.Log(currentGear);
             AppropriateGear = currentGear;
             for (var j = gearRatio.Length - 1; j >= 0; j--)
             {
+                Debug.Log(RL.rpm + " Rpm");
                 if (RL.rpm * gearRatio[j] > gearDownRPM)
                 {
                     AppropriateGear = j;
                     break;
                 }
             }
+            Debug.Log(AppropriateGear);
             currentGear = AppropriateGear;
         }
     }
@@ -180,7 +195,7 @@ public class BasicVehControls : MonoBehaviour
         FR.brakeTorque = brakeTorque;
     }
 
-	/*void carSounds()
+	void carSounds()
 	{
 
 		for (int i = 0; i < 16; i++) {
@@ -549,5 +564,5 @@ public class BasicVehControls : MonoBehaviour
 				}
 			}
 		}
-	}*/
+	}
 	}
