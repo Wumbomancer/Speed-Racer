@@ -30,6 +30,9 @@ public class BasicVehControls : MonoBehaviour
 
 	public bool handBraked;
 
+    private float desiredSpeed;
+    private float desiredBrake;
+
 	public List<AudioSource> CarSound;
 
 	public float[] MinRpmTable = {50.0f, 75.0f, 112.0f, 166.9f, 222.4f, 278.3f, 333.5f, 388.2f, 435.5f, 483.3f, 538.4f, 594.3f, 643.6f, 692.8f, 741.9f, 790.0f};
@@ -91,12 +94,18 @@ public class BasicVehControls : MonoBehaviour
 
     void Accelerate()
     {
-       
+       // Grab Inputs here
+        desiredSpeed = Input.GetAxis("Gas") * (-1f)*Time.deltaTime*100;
+        desiredBrake = Input.GetAxis("Gas") * Time.deltaTime*100;
+        if (desiredSpeed < 0)
+            desiredSpeed = 0;
+        if (desiredBrake < 0)
+            desiredBrake = 0;
         if (currentSpeed < maxSpeed && currentSpeed > maxRevSpeed && engineRPM <= gearUpRPM)
         {
-            Debug.Log(Input.GetAxis("Gas"));
-            RL.motorTorque = torque * Input.GetAxis("Gas") * (-1f);
-            RR.motorTorque = torque * Input.GetAxis("Gas") * (-1f);
+            Debug.Log(desiredSpeed);
+            RL.motorTorque = torque * desiredSpeed;
+            RR.motorTorque = torque * desiredSpeed;
             RL.brakeTorque = 0;
             RR.brakeTorque = 0;
             
@@ -110,7 +119,7 @@ public class BasicVehControls : MonoBehaviour
             RR.brakeTorque = brakeTorque;
         }
 
-		if (engineRPM > 0 && Input.GetAxis("Gas") * (-1f) < 0 && engineRPM <= gearUpRPM)
+		if (engineRPM > 0 && desiredSpeed  < 0 && engineRPM <= gearUpRPM)
 		{
            
             FL.brakeTorque = brakeTorque;
